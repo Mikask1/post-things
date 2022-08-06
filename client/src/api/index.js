@@ -2,13 +2,12 @@ import axios from "axios"
 
 const localhost = "http://localhost:5000"
 const server = "https://post-things.herokuapp.com"
-const API = axios.create({ baseURL: server})
+const API = axios.create({ baseURL: localhost})
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem("profile")){
         req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem("profile")).token}`
     }
-
     return req
 })
 

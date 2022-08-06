@@ -8,9 +8,11 @@ import { deleteComment } from '../../../../../actions/posts'
 const Comment = ({ userId, post, comment, doneComment, setDoneComment }) => {
     const classes = useStyles()
     const dispatch = useDispatch()
+    
     const [alert, setAlert] = useState("")
 
     const isCreator = userId === comment.userId
+
     const handleDeleteComment = () => {
         if (!doneComment) {
             setTimeout(() => {

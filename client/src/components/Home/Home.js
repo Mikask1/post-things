@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, AppBar, Grow, Button, Typography} from "@material-ui/core"
+import { Container, AppBar, Grow, Button, Typography } from "@material-ui/core"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import decode from "jwt-decode"
@@ -32,10 +32,10 @@ export const Home = () => {
     useEffect(() => {
         const token = user?.token
 
-        if (token){
+        if (token) {
             const decoded = decode(token)
 
-            if (decoded.exp * 1000 < new Date().getTime()){
+            if (decoded.exp * 1000 < new Date().getTime()) {
                 logout()
             }
         }
@@ -51,13 +51,13 @@ export const Home = () => {
         <Container>
             <AppBar className={classes.appBar} position="fixed" style={{ background: "#232323" }}>
                 <div className={classes.leftNav}>
-                    <a href="/"><img className={classes.logo} src={PostThingsLogo} alt="memories logo" /></a>
+                    <a onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}><img className={classes.logo} src={PostThingsLogo} alt="memories logo" /></a>
                     {user !== null && <a onClick={() => { setOpenModal(!openModal) }}><img className={classes.icon} src={PlusIcon} alt="upload button" /></a>}
                 </div>
                 <div className={classes.rightNav}>
                     {user !== null &&
                         <div className={classes.userProfile}>
-                            {user?.result.picture && <img src={user?.result.picture} width={20} height={20}></img>}
+                            {user?.result.picture && <img src={user?.result.picture} width={20} height={20} alt="profile pic"></img>}
                             <Typography variant="body2" style={{ marginLeft: "0.5rem" }}>{user?.result.name}</Typography>
                         </div>
                     }

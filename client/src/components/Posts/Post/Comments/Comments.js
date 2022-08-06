@@ -11,9 +11,11 @@ import { addComment } from '../../../../actions/posts'
 const Comments = ({user, post, commentModal, setCommentModal}) => {
     const classes = useStyles()
     const dispatch = useDispatch()
+
     const [comment, setComment] = useState("")
     const [alert, setAlert] = useState("")
     const [doneComment, setDoneComment] = useState(true)
+    
     const userId = user?.result?.sub ? user?.result?.sub : user?.result?._id
 
     const handleSubmit = (e) => {

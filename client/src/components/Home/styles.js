@@ -1,4 +1,4 @@
-import { makeStyles, withMobileDialog } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
 const logoHeight = 30
 const margin = 10
@@ -14,6 +14,7 @@ export default makeStyles(() => ({
         height: logoHeight,
         margin: margin,
         marginLeft: "30px",
+        cursor: "pointer",
     },
     icon: {
         height: "15px",

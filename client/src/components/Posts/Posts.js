@@ -14,7 +14,6 @@ function randomColor() {
 
 export const Posts = (props) => {
     const classes = useStyles()
-
     const { currentID, setCurrentID, setOpenModal, openModal } = props
 
     const posts = useSelector((state) => state.posts)

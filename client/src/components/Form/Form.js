@@ -14,7 +14,7 @@ export const Form = React.forwardRef((props, ref) => {
     const dispatch = useDispatch()
     const [postData, setPostData] = useState({ title: "", message: "", tags: "", file: "" })
 
-    const user = JSON.parse(localStorage.getItem("profile"))?.result?.name
+    const user = JSON.parse(localStorage.getItem("profile"))
 
     const handleChange = (e) => {
         setPostData({ ...postData, [e.target.name]: e.target.value })
@@ -56,7 +56,7 @@ export const Form = React.forwardRef((props, ref) => {
         else { // Create Post
             postData.file = String(postData.file.base64)
 
-            dispatch(createPost({...postData, user: user}))
+            dispatch(createPost({...postData, user: user?.result?.name}))
 
             setOpenModal(!openModal)
             setCurrentID(null)

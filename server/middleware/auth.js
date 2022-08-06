@@ -2,8 +2,8 @@ import jwt from "jsonwebtoken"
 
 const tokenValidation = async (req, res, next) => {
     try {
-        const token = req.headers.authorization.split(" ")[1]
-        const isOwnAuth = token.length < 500
+        const token = req.headers.authorization.split(" ")[1] // Bearer [TOKEN]
+        const isOwnAuth = token.length < 500 // check if it's Google's token
 
         let decodedData;
 

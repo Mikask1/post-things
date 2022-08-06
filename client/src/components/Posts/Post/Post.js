@@ -25,7 +25,8 @@ export const Post = (props) => {
 
     const user = JSON.parse(localStorage.getItem("profile"))
     
-    const isCreator = user?.result?.sub === post?.userId || user?.result?._id === post?.userId
+
+    const isCreator = user?.result?.sub ? user?.result?.sub === post?.userId : user?.result?._id === post?.userId
 
     const Likes = () => {
         if (post.likes.length > 0) {
